@@ -12,7 +12,7 @@ public class Course
     private String courseNumber;
     private String title;
     private String instructor;
-    private ArrayList<Student> studentsInCourse;
+    public ArrayList<Student> studentsInCourse;
 
     /**
      * Constructor for objects of class Course

@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Student here.
  *
@@ -7,27 +7,30 @@
  */
 public class Student
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // instance variables
+    private String studentName;
+    private String studentID;
+    private String department;
+    private ArrayList<Course> coursesEnrolledIn;
 
     /**
      * Constructor for objects of class Student
      */
-    public Student()
+    public Student(String name, String id, String department)
     {
-        // initialise instance variables
-        x = 0;
+        studentName = name;
+        studentID = id;
+        this.department = department;
+        coursesEnrolledIn = new ArrayList<>();
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Enrolls the student in the specified course
+     * The course is added to the student's list of courses and the student is added to the course's list of students
      */
-    public int sampleMethod(int y)
+    public void enrollInCourse(Course course)
     {
-        // put your code here
-        return x + y;
+        coursesEnrolledIn.add(course);
+        course.studentsInCourse.add(this);
     }
 }
