@@ -1,33 +1,39 @@
-
+import java.util.ArrayList;
 /**
- * Write a description of class Course here.
+ * This class represents courses offered by a university
  *
- * @author (your name)
+ * @author Evan Rich
  * @version (a version number or a date)
  */
 public class Course
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private static ArrayList<Course> allCourses = new ArrayList<>();
+    // instance variables
+    private String courseNumber;
+    private String title;
+    private String instructor;
+    private ArrayList<Student> studentsInCourse;
 
     /**
      * Constructor for objects of class Course
      */
-    public Course()
+    public Course(String number, String title, String instructor)
     {
-        // initialise instance variables
-        x = 0;
+        courseNumber = number;
+        this.title = title;
+        this.instructor = instructor;
+        studentsInCourse = new ArrayList<>();
+        allCourses.add(this);
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Method to print the course number, title, and instructor of every course the university offers
      */
-    public int sampleMethod(int y)
+    public void printEveryCourse()
     {
-        // put your code here
-        return x + y;
+        for(Course course : allCourses)
+        {
+            System.out.println(course.courseNumber + " - " + course.title + " - " + course.instructor);
+        }
     }
 }
