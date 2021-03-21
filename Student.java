@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 /**
  * Write a description of class Student here.
  *
@@ -7,11 +8,13 @@ import java.util.ArrayList;
  */
 public class Student
 {
+    private static ArrayList<Student> allStudents = new ArrayList<>();
     // instance variables
     private String studentName;
     private String studentID;
     private String department;
     private ArrayList<Course> coursesEnrolledIn;
+    private HashMap<Course, Integer> grades;
 
     /**
      * Constructor for objects of class Student
@@ -22,6 +25,8 @@ public class Student
         studentID = id;
         this.department = department;
         coursesEnrolledIn = new ArrayList<>();
+        grades = new HashMap<>();
+        allStudents.add(this);
     }
 
     /**
@@ -32,5 +37,21 @@ public class Student
     {
         coursesEnrolledIn.add(course);
         course.studentsInCourse.add(this);
+    }
+    
+    public void printStudentsInDepartment(String department)
+    {
+        for(Student student : allStudents)
+        {
+            if(student.department == department)
+            {
+                System.out.println("Student - " + student.studentName + " (ID: " + student.studentID + ")");
+                System.out.println("Enrolled in:");
+                for(Course course : student.coursesEnrolledIn)
+                {
+                    System.out.println(course.courseNumber);
+                }
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ public class Course
 {
     private static ArrayList<Course> allCourses = new ArrayList<>();
     // instance variables
-    private String courseNumber;
+    public String courseNumber;
     private String title;
     private String instructor;
     public ArrayList<Student> studentsInCourse;
