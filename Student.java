@@ -38,8 +38,36 @@ public class Student
         coursesEnrolledIn.add(course);
         course.studentsInCourse.add(this);
     }
+    /**
+     * Drops the specified course for the student 
+     * The course is remvoed from the student's list of courses and student is removed from the course's list of students
+     */
+    public void dropCourse(Course course)
+    {
+        coursesEnrolledIn.remove(course);
+        course.studentsInCourse.remove(this);
+    }
+    /**
+     * Sets the grade for the specified course
+     */
+    public void setGrade(Course course, int grade)
     
-    public void printStudentsInDepartment(String department)
+    {
+      grades.put(course,grade);
+      
+    }
+    /**
+     * Returns the grade for the specified course
+     */
+    public int getGrade(Course course)
+    
+    {
+        return grades.get(course);
+        
+        
+    }
+   
+     public void printStudentsInDepartment(String department)
     {
         for(Student student : allStudents)
         {
@@ -55,3 +83,4 @@ public class Student
         }
     }
 }
+
